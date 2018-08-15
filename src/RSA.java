@@ -67,11 +67,11 @@ public class RSA
      * @param pKey public key for encrypt
      * @param data data to encrypt as byte array
      * @return encrypted data array
-     * @throws NoSuchAlgorithmException
-     * @throws NoSuchPaddingException
-     * @throws InvalidKeyException
-     * @throws IllegalBlockSizeException
-     * @throws BadPaddingException
+     * @throws NoSuchAlgorithmException if encryption algorithm is not valid
+     * @throws NoSuchPaddingException if cipher algorithm fails
+     * @throws InvalidKeyException if public key is invalid
+     * @throws IllegalBlockSizeException if data is not valid
+     * @throws BadPaddingException if data is not valid
      */
     public static byte[] encrypt(PublicKey pKey, byte[] data) throws NoSuchAlgorithmException, NoSuchPaddingException,
             InvalidKeyException, IllegalBlockSizeException, BadPaddingException
@@ -91,11 +91,11 @@ public class RSA
      * @param privateKey private key to use
      * @param encryptedData data to decrypt as byte array
      * @return decrypted data
-     * @throws NoSuchAlgorithmException
-     * @throws NoSuchPaddingException
-     * @throws InvalidKeyException
-     * @throws BadPaddingException
-     * @throws IllegalBlockSizeException
+     * @throws NoSuchAlgorithmException if encryption algorithm is not valid
+     * @throws NoSuchPaddingException if cipher algorithm fails
+     * @throws InvalidKeyException if public key is invalid
+     * @throws IllegalBlockSizeException if data is not valid
+     * @throws BadPaddingException if data is not valid
      */
     public static byte[] decrypt(PrivateKey privateKey, byte[] encryptedData) throws NoSuchAlgorithmException, NoSuchPaddingException,
             InvalidKeyException, BadPaddingException, IllegalBlockSizeException
@@ -119,11 +119,11 @@ public class RSA
      * @param publicKey public key for encrypting
      * @param base64String data as BASE64 string
      * @return encrypted data as BASE64 string
-     * @throws NoSuchAlgorithmException
-     * @throws NoSuchPaddingException
-     * @throws IllegalBlockSizeException
-     * @throws InvalidKeyException
-     * @throws BadPaddingException
+     * @throws NoSuchAlgorithmException if encryption algorithm is not valid
+     * @throws NoSuchPaddingException if cipher algorithm fails
+     * @throws InvalidKeyException if public key is invalid
+     * @throws IllegalBlockSizeException if data is not valid
+     * @throws BadPaddingException if data is not valid
      * @throws IllegalArgumentException if given string is not a valid BASE64 string
      */
     public static String getEncryptedBase64String(PublicKey publicKey, String base64String) throws NoSuchAlgorithmException, NoSuchPaddingException,
@@ -140,11 +140,11 @@ public class RSA
      * @param publicKey public key for encrypting
      * @param data data to encrypt as byte array
      * @return encrypted data as BASE64 string
-     * @throws NoSuchAlgorithmException
-     * @throws NoSuchPaddingException
-     * @throws IllegalBlockSizeException
-     * @throws InvalidKeyException
-     * @throws BadPaddingException
+     * @throws NoSuchAlgorithmException if encryption algorithm is not valid
+     * @throws NoSuchPaddingException if cipher algorithm fails
+     * @throws InvalidKeyException if public key is invalid
+     * @throws IllegalBlockSizeException if data is not valid
+     * @throws BadPaddingException if data is not valid
      */
     public static String getEncryptedBase64String(PublicKey publicKey, byte[] data) throws NoSuchAlgorithmException, NoSuchPaddingException,
             IllegalBlockSizeException, InvalidKeyException, BadPaddingException
@@ -178,7 +178,7 @@ public class RSA
      * Get public key from X509 encoded data. This might help to retrive public key file from disk.
      * @param X509EncodedData byte array of data. format should be X509 encoded
      * @return PublicKey object
-     * @throws NoSuchAlgorithmException
+     * @throws NoSuchAlgorithmException if encryption algorithm is not valid
      * @throws InvalidKeySpecException if data array has not valid X509 data
      */
     public static PublicKey getPublicKey(byte[] X509EncodedData) throws NoSuchAlgorithmException, InvalidKeySpecException
