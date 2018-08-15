@@ -1,4 +1,4 @@
-/*
+package com.ultimatex.textcrypto;/*
 Copyright 2018 Lakindu Akash
 
    Licensed under the Apache License, Version 2.0 (the "License");
