@@ -80,9 +80,18 @@ public class AES
     }
 
 
-    public static String getEncryptedDataBase64(SecretKey key,byte[] data) throws BadPaddingException,IllegalBlockSizeException,
-            InvalidKeyException
-    {
+    /**
+     * Encrypt raw data and return encrypted data as BASE64 string
+     *
+     * @param key  secret key for encrypting
+     * @param data data to encrypt as byte array
+     * @return encrypted data as BASE64 string
+     * @throws IllegalBlockSizeException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     */
+    public static String getEncryptedDataBase64(SecretKey key, byte[] data) throws BadPaddingException,IllegalBlockSizeException,
+            InvalidKeyException {
         return Base64.getEncoder().encodeToString(encrypt(key,data));
     }
 
