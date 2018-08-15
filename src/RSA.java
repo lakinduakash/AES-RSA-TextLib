@@ -102,10 +102,10 @@ public class RSA
     }
 
 
-    public static String getDecryptedDataBASE64(PrivateKey privateKey, String encryptedDataBASE64) {
-
-        return null;
-    }
+//    public static String getDecryptedDataBASE64(PrivateKey privateKey, String encryptedDataBASE64) {
+//
+//        return null;
+//    }
 
     /**
      * This function encrypt data form of BASE64 string and return encrypted data as BASE64 string
