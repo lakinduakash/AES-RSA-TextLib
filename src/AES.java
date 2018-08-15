@@ -152,15 +152,27 @@ public class AES
         return Base64.getEncoder().encodeToString(decrypt(key,data));
     }
 
-    public static String getDecryptedDataBase64(SecretKey key,String base64EncodeString) throws BadPaddingException,IllegalBlockSizeException,
-            InvalidKeyException
-    {
+    /**
+     * Decrypt data from BASE64 encrypted string and return decrypted data as BASE64 string
+     *
+     * @param key                Secret key to decrypt
+     * @param base64EncodeString data as BASE64
+     * @return decrypted data as BASE64 string
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     * @throws InvalidKeyException
+     */
+    public static String getDecryptedDataBase64(SecretKey key, String base64EncodeString) throws BadPaddingException,IllegalBlockSizeException,
+            InvalidKeyException {
         return Base64.getEncoder().encodeToString(decrypt(key,Base64.getDecoder().decode(base64EncodeString)));
     }
 
 
-    public static String getAlgorithm()
-    {
+    /**
+     *
+     * @return Algorithm name as String
+     */
+    public static String getAlgorithm() {
         return ALGORITHM;
     }
 }
