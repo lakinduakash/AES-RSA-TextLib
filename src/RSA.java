@@ -42,14 +42,21 @@ public class RSA
      * Generate KeyPair object to given key size in bit length.
      * @param keySize length of key size. 2048,1024 etc.
      * @return randomly generated KeyPair object
-     * @throws NoSuchAlgorithmException
      */
-    public static KeyPair genKeyPair(int keySize) throws NoSuchAlgorithmException
+    public static KeyPair genKeyPair(int keySize)
     {
-        KeyPair keyPair;
-        final KeyPairGenerator keyGen = KeyPairGenerator.getInstance(ALGORITHM);
-        keyGen.initialize(keySize);
-        keyPair = keyGen.generateKeyPair();
+        KeyPair keyPair = null;
+
+
+        KeyPairGenerator keyGen = null;
+        try {
+            keyGen = KeyPairGenerator.getInstance(ALGORITHM);
+            keyGen.initialize(keySize);
+            keyPair = keyGen.generateKeyPair();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+
 
 
         return keyPair;
