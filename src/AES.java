@@ -55,8 +55,6 @@ public class AES
      * @param key public key for encrypt
      * @param data data to encrypt as byte array
      * @return encrypted data array
-     * @throws NoSuchAlgorithmException
-     * @throws NoSuchPaddingException
      * @throws InvalidKeyException
      * @throws IllegalBlockSizeException
      * @throws BadPaddingException
@@ -81,15 +79,26 @@ public class AES
         return encriptedData;
     }
 
+
     public static String getEncryptedDataBase64(SecretKey key,byte[] data) throws BadPaddingException,IllegalBlockSizeException,
             InvalidKeyException
     {
         return Base64.getEncoder().encodeToString(encrypt(key,data));
     }
 
-    public static String getEncryptedDataBase64(SecretKey key,String base64EncodedString) throws BadPaddingException,IllegalBlockSizeException,
-            InvalidKeyException
-    {
+    /**
+     * This function encrypt data form of BASE64 string and return encrypted data as BASE64 string
+     *
+     * @param key                 secret key for encrypting
+     * @param base64EncodedString data as BASE64 string
+     * @return encrypted data as BASE64 string
+     * @throws IllegalBlockSizeException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalArgumentException  if given string is not a valid BASE64 string
+     */
+    public static String getEncryptedDataBase64(SecretKey key, String base64EncodedString) throws BadPaddingException,IllegalBlockSizeException,
+            InvalidKeyException {
         return Base64.getEncoder().encodeToString(encrypt(key,Base64.getDecoder().decode(base64EncodedString)));
     }
 
