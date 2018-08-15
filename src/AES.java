@@ -31,7 +31,6 @@ public class AES
      * Generate secret key object from given key size in bit length.
      * @param keySize length of key size. 128, 256 etc.
      * @return randomly generated secret key object
-     * @throws NoSuchAlgorithmException
      */
     public static SecretKey genKey(int keySize)
     {
@@ -69,10 +68,7 @@ public class AES
             cipher.init(Cipher.ENCRYPT_MODE,key);
             encriptedData= cipher.doFinal(data);
 
-        } catch (NoSuchAlgorithmException e)
-        {
-            e.printStackTrace();
-        } catch (NoSuchPaddingException e)
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException e)
         {
             e.printStackTrace();
         }
