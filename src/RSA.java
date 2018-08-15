@@ -33,6 +33,12 @@ public class RSA
     public final static String ALGORITHM = "RSA";
 
 
+    /**
+     * Generate KeyPaire object to given key size in bit length.
+     * @param keySize length of key size. 2048,1024 etc.
+     * @return randomly generated KeyPair object
+     * @throws NoSuchAlgorithmException
+     */
     public static KeyPair genKeyPair(int keySize) throws NoSuchAlgorithmException
     {
         KeyPair keyPair;
@@ -44,6 +50,17 @@ public class RSA
         return keyPair;
     }
 
+    /**
+     * Encrypt byte array using a given public key
+     * @param pKey public key for encrypt
+     * @param data data to encrypt as byte array
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws NoSuchPaddingException
+     * @throws InvalidKeyException
+     * @throws IllegalBlockSizeException
+     * @throws BadPaddingException
+     */
     public static byte[] encrypt(PublicKey pKey, byte[] data) throws NoSuchAlgorithmException, NoSuchPaddingException,
             InvalidKeyException, IllegalBlockSizeException, BadPaddingException
     {
