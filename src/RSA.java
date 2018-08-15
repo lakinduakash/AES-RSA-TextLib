@@ -26,10 +26,15 @@ import java.util.Base64;
 /**
  * @author lakinduakash
  *         Created by lakinduakash on 1/17/18.
+ * This class is based more on handling string data rather than raw data. However there are functions for raw data
+ * as helper functions.
+ *
  */
+
 
 public class RSA
 {
+    //Using RSA algorithm
     public final static String ALGORITHM = "RSA";
 
 
@@ -51,7 +56,7 @@ public class RSA
     }
 
     /**
-     * Encrypt byte array using a given public key
+     * Encrypt raw byte array using a given public key
      * @param pKey public key for encrypt
      * @param data data to encrypt as byte array
      * @return encrypted data array
@@ -74,6 +79,17 @@ public class RSA
         return encryptedData;
     }
 
+    /**
+     * Decrypt raw data using private key
+     * @param privateKey private key to use
+     * @param encryptedData data to decrypt as byte array
+     * @return decrypted data
+     * @throws NoSuchAlgorithmException
+     * @throws NoSuchPaddingException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
     public static byte[] decrypt(PrivateKey privateKey, byte[] encryptedData) throws NoSuchAlgorithmException, NoSuchPaddingException,
             InvalidKeyException, BadPaddingException, IllegalBlockSizeException
     {
@@ -85,6 +101,18 @@ public class RSA
         return decryptedData;
     }
 
+    /**
+     * This function encrypt data form of BASE64 string and return encrypted data as BASE64 string
+     * @param publicKey public key for encrypting
+     * @param base64String data as BASE64 string
+     * @return encrypted data as BASE64 string
+     * @throws NoSuchAlgorithmException
+     * @throws NoSuchPaddingException
+     * @throws IllegalBlockSizeException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalArgumentException if given string is not a valid BASE64 string
+     */
     public static String getEncryptedBase64String(PublicKey publicKey, String base64String) throws NoSuchAlgorithmException, NoSuchPaddingException,
             IllegalBlockSizeException, InvalidKeyException, BadPaddingException
     {
@@ -94,6 +122,17 @@ public class RSA
         return Base64.getEncoder().encodeToString(encryptedBytes);
     }
 
+    /**
+     * Encrypt raw data and return encrypted data as BASE64 string
+     * @param publicKey public key for encrypting
+     * @param data data to encrypt as byte array
+     * @return encrypted data as BASE64 string
+     * @throws NoSuchAlgorithmException
+     * @throws NoSuchPaddingException
+     * @throws IllegalBlockSizeException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     */
     public static String getEncryptedBase64String(PublicKey publicKey, byte[] data) throws NoSuchAlgorithmException, NoSuchPaddingException,
             IllegalBlockSizeException, InvalidKeyException, BadPaddingException
     {
@@ -102,11 +141,21 @@ public class RSA
         return Base64.getEncoder().encodeToString(encryptedBytes);
     }
 
+    /**
+     * Get public key as BASE64 string
+     * @param publicKey PublicKey to encode
+     * @return encoded public key as BASE64 string
+     */
     public static String getPublicKeyAsBase64Encoded(PublicKey publicKey)
     {
         return Base64.getEncoder().encodeToString(getPublicKeyBytes(publicKey));
     }
 
+    /**
+     * Convert public key to byte array
+     * @param publicKey PublicKey to convert
+     * @return byte array of public key
+     */
     private static byte[] getPublicKeyBytes(PublicKey publicKey)
     {
         return publicKey.getEncoded();
