@@ -1,2 +1,3 @@
 # AES-RSA-TextLib
-Simple implementatation text encryption using RSA and AES algorithems.
+Simple implementation text encryption using RSA and AES algorithms.
+Visit documentation at  https://lakinduakash.github.io/AES-RSA-TextLib/
