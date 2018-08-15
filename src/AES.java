@@ -130,18 +130,25 @@ public class AES
             cipher.init(Cipher.DECRYPT_MODE,key);
             decryptedData = cipher.doFinal(encryptedData);
 
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (NoSuchPaddingException e) {
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
             e.printStackTrace();
         }
 
         return decryptedData;
     }
 
-    public static String getDecryptedDataBase64(SecretKey key,byte[] data) throws BadPaddingException,IllegalBlockSizeException,
-            InvalidKeyException
-    {
+    /**
+     * Get decrypted data as BASE64 string.
+     *
+     * @param key  secret key to decrypt
+     * @param data byte array of encrypted data
+     * @return decrypted data as BASE64 string
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     * @throws InvalidKeyException
+     */
+    public static String getDecryptedDataBase64(SecretKey key, byte[] data) throws BadPaddingException,IllegalBlockSizeException,
+            InvalidKeyException {
         return Base64.getEncoder().encodeToString(decrypt(key,data));
     }
 
