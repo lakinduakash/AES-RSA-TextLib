@@ -54,7 +54,7 @@ public class RSA
      * Encrypt byte array using a given public key
      * @param pKey public key for encrypt
      * @param data data to encrypt as byte array
-     * @return
+     * @return encrypted data array
      * @throws NoSuchAlgorithmException
      * @throws NoSuchPaddingException
      * @throws InvalidKeyException
