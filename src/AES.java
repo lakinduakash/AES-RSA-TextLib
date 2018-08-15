@@ -27,6 +27,12 @@ public class AES
 {
     public static final String ALGORITHM="AES";
 
+    /**
+     * Generate secret key object from given key size in bit length.
+     * @param keySize length of key size. 128, 256 etc.
+     * @return randomly generated secret key object
+     * @throws NoSuchAlgorithmException
+     */
     public static SecretKey genKey(int keySize)
     {
         SecretKey key=null;
@@ -44,6 +50,17 @@ public class AES
         return key;
     }
 
+    /**
+     * Encrypt raw byte array using a given secret key
+     * @param key public key for encrypt
+     * @param data data to encrypt as byte array
+     * @return encrypted data array
+     * @throws NoSuchAlgorithmException
+     * @throws NoSuchPaddingException
+     * @throws InvalidKeyException
+     * @throws IllegalBlockSizeException
+     * @throws BadPaddingException
+     */
     public static byte[] encrypt(SecretKey key,byte[] data) throws InvalidKeyException,IllegalBlockSizeException,
             BadPaddingException
     {

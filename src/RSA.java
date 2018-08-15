@@ -39,7 +39,7 @@ public class RSA
 
 
     /**
-     * Generate KeyPaire object to given key size in bit length.
+     * Generate KeyPair object to given key size in bit length.
      * @param keySize length of key size. 2048,1024 etc.
      * @return randomly generated KeyPair object
      * @throws NoSuchAlgorithmException
