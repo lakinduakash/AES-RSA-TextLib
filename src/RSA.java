@@ -161,6 +161,13 @@ public class RSA
         return publicKey.getEncoded();
     }
 
+    /**
+     * Get public key from X509 encoded data. This might help to retrive public key file from disk.
+     * @param X509EncodedData byte array of data. format should be X509 encoded
+     * @return PublicKey object
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeySpecException if data array has not valid X509 data
+     */
     public static PublicKey getPublicKey(byte[] X509EncodedData) throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(X509EncodedData);
@@ -169,6 +176,10 @@ public class RSA
 
     }
 
+    /**
+     * Return the algorithm
+     * @return algorithm
+     */
     public static String getAlgorithm()
     {
         return ALGORITHM;
